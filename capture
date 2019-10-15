@@ -1,0 +1,14 @@
+#!/usr/bin/python
+
+import os
+import sys
+
+lib_dir = os.path.dirname(os.path.realpath(__file__))
+libear_path = lib_dir + "/libear.so"
+
+destination = "captures.txt"
+
+os.putenv('LIBEAR_OUTPUT', destination)
+os.putenv('LD_PRELOAD', libear_path)
+
+os.system(' '.join(sys.argv[1:]))
